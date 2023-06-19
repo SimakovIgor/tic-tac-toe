@@ -117,6 +117,7 @@ public class GUI implements UserInterface {
 			panels[boardIndex].setBorder(BorderFactory.createLineBorder(Color.gray, 5));
 		}
 		int boardIndex = game.getIndexNextBoard();
+		System.out.println("game.getIndexNextBoard(): " + boardIndex);
 		if (boardIndex == -1) {
 			for (boardIndex = 0; boardIndex < 9; boardIndex++) {
 				panels[boardIndex].setBorder(BorderFactory.createLineBorder(Color.GREEN, 5));
@@ -127,7 +128,7 @@ public class GUI implements UserInterface {
 		int j = -1;
 		for (int i = 0; i < boards.length; i++) {
 			BoardInterface b = boards[i];
-			MarkInterface[] pieces = b.getMarks();
+			MarkInterface[] pieces = b.getMarkInterfaces();
 			for (MarkInterface p : pieces) {
 				j = p.getPosition();
 				String symbol = p.getSymbol().toString();
@@ -145,7 +146,7 @@ public class GUI implements UserInterface {
 
 	@Override
 	public void updateScreen(BoardInterface game) {
-		MarkInterface[] pieces = game.getMarks();
+		MarkInterface[] pieces = game.getMarkInterfaces();
 		panels[0].setBorder(BorderFactory.createLineBorder(Color.gray, 5));
 
 		for (MarkInterface p : pieces) {

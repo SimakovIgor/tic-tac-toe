@@ -11,7 +11,7 @@ public interface BoardInterface extends GameRunnerInterface {
 	 *
 	 *         Note: Empty cells have marks with symbol 'Empty'.
 	 */
-	public MarkInterface[] getMarks();
+	public MarkInterface[] getMarkInterfaces();
 
 	/**
 	 * Sets all marks on the board.
@@ -19,7 +19,7 @@ public interface BoardInterface extends GameRunnerInterface {
 	 *
 	 * Note: Convenient for testing. Not allowed to use in the AI.
 	 */
-	public void setMarks(MarkInterface[] marks) throws IllegalArgumentException;
+	public void setMarkInterfaces(MarkInterface[] markInterfaces) throws IllegalArgumentException;
 
 	/**
 	 * Sets the symbol of a mark at the given position (markIndex) on the board.

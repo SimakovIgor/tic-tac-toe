@@ -1,8 +1,8 @@
 package uttt.ui;
 
-import javax.swing.*;
-
 import uttt.utils.Move;
+
+import javax.swing.*;
 
 import java.awt.*;
 

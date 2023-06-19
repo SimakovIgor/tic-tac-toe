@@ -1,20 +1,17 @@
 package tests;
 
+import static org.junit.Assert.*;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import uttt.UTTTFactory;
 import uttt.game.BoardInterface;
 import uttt.game.SimulatorInterface;
 import uttt.utils.Symbol;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThrows;
-import static org.junit.Assert.assertTrue;
+public class TestSimulatorTests {
 
-//TODO: send
-public class SimulatorInterfaceTests {
     private SimulatorInterface simulatorInterface;
 
     @Before
@@ -136,23 +133,23 @@ public class SimulatorInterfaceTests {
      * public void isGameOverTrue() {
      * //BoardInterface[] boards = new BoardInterface[9];
      * //fillGameBoardsWithEmpty(boards);
-     *
+     * 
      * BoardInterface[] boards = simulatorInterface.getBoards();
-     *
+     * 
      * Symbol cross = Symbol.CROSS;
-     *
+     * 
      * boards[0].setMarkAt(cross, 0);
      * boards[0].setMarkAt(cross, 0);
      * boards[0].setMarkAt(cross, 0);
-     *
+     * 
      * boards[1].setMarkAt(cross, 1);
      * boards[1].setMarkAt(cross, 1);
      * boards[2].setMarkAt(cross, 1);
-     *
+     * 
      * boards[2].setMarkAt(cross, 2);
      * boards[2].setMarkAt(cross, 2);
      * boards[2].setMarkAt(cross, 2);
-     *
+     * 
      * simulatorInterface.setCurrentPlayerSymbol(Symbol.CIRCLE);
      * assertTrue(simulatorInterface.isGameOver());
      * }
@@ -259,8 +256,8 @@ public class SimulatorInterfaceTests {
         assertNotNull(actualBoards[6]);
         assertNotNull(actualBoards[7]);
         assertNotNull(actualBoards[8]);
-        assertEquals(Symbol.CROSS, actualBoards[0].getMarks()[0].getSymbol());
-        assertEquals(Symbol.EMPTY, actualBoards[0].getMarks()[1].getSymbol());
+        assertEquals(Symbol.CROSS, actualBoards[0].getMarkInterfaces()[0].getSymbol());
+        assertEquals(Symbol.EMPTY, actualBoards[0].getMarkInterfaces()[1].getSymbol());
     }
 
 }

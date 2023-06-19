@@ -3,7 +3,7 @@
 import uttt.UTTTFactory;
 import uttt.utils.Symbol;
 
-public class Main {
+ public class Main {
 
 	/**
 	 * If set to true a human will be playing the game, otherwise a computer player
