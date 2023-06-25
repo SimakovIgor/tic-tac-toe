@@ -1,26 +1,25 @@
 package tests;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import uttt.UTTTFactory;
 import uttt.game.SimulatorInterface;
 
+import static org.junit.Assert.assertNotNull;
+
 public class SimpleTest {
 
-	SimulatorInterface simulator;
+    private SimulatorInterface simulator;
 
-	@Before
-	public void setUp() throws Exception {
-		simulator = UTTTFactory.createSimulator();
+    @Before
+    public void setUp() {
+        simulator = UTTTFactory.createSimulator();
 
-	}
+    }
 
-	@Test
-	public void simpleSetPieceTest() {
-		assertNotNull(simulator);
-	}
+    @Test
+    public void simpleSetPieceTest() {
+        assertNotNull(simulator);
+    }
 
 }

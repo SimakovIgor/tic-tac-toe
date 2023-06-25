@@ -1,18 +1,26 @@
 package tests;
 
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
-
 import uttt.UTTTFactory;
 import uttt.game.BoardInterface;
 import uttt.game.SimulatorInterface;
 import uttt.utils.Symbol;
 
+import static org.junit.Assert.*;
+
 public class TestSimulatorTests {
 
     private SimulatorInterface simulatorInterface;
+
+    private static void fillGameBoardsWithEmpty(BoardInterface[] boards) {
+        for (int i = 0; i < 9; i++) {
+            boards[i] = UTTTFactory.createBoard();
+            for (int j = 0; j < 9; j++) {
+                boards[i].setMarkAt(Symbol.EMPTY, j);
+            }
+        }
+    }
 
     @Before
     public void beforeEach() {
@@ -22,17 +30,6 @@ public class TestSimulatorTests {
     @Test
     public void simpleSetPieceTest() {
         assertNotNull(simulatorInterface);
-    }
-
-    private static void fillGameBoardsWithEmpty(BoardInterface[] boards) {
-        for (int i = 0; i < 9; i++) {
-            boards[i] = UTTTFactory.createBoard();
-            assertNotNull(boards[i]);
-            for (int j = 0; j < 9; j++) {
-
-                boards[i].setMarkAt(Symbol.EMPTY, j);
-            }
-        }
     }
 
     @Test
@@ -128,38 +125,6 @@ public class TestSimulatorTests {
         simulatorInterface.setMarkAt(Symbol.CROSS, 2, 4);
         assertTrue(simulatorInterface.isMovePossible(4));
     }
-    /*
-     * @Test
-     * public void isGameOverTrue() {
-     * //BoardInterface[] boards = new BoardInterface[9];
-     * //fillGameBoardsWithEmpty(boards);
-     * 
-     * BoardInterface[] boards = simulatorInterface.getBoards();
-     * 
-     * Symbol cross = Symbol.CROSS;
-     * 
-     * boards[0].setMarkAt(cross, 0);
-     * boards[0].setMarkAt(cross, 0);
-     * boards[0].setMarkAt(cross, 0);
-     * 
-     * boards[1].setMarkAt(cross, 1);
-     * boards[1].setMarkAt(cross, 1);
-     * boards[2].setMarkAt(cross, 1);
-     * 
-     * boards[2].setMarkAt(cross, 2);
-     * boards[2].setMarkAt(cross, 2);
-     * boards[2].setMarkAt(cross, 2);
-     * 
-     * simulatorInterface.setCurrentPlayerSymbol(Symbol.CIRCLE);
-     * assertTrue(simulatorInterface.isGameOver());
-     * }
-     */
-    /*
-     * @Test
-     * public void isGameOverFalse() {
-     * assertFalse(simulatorInterface.isGameOver());
-     * }
-     */
 
     @Test
     public void getIndexNextBoardFirstStep() {
@@ -247,15 +212,6 @@ public class TestSimulatorTests {
         simulatorInterface.setBoards(boards);
         BoardInterface[] actualBoards = simulatorInterface.getBoards();
 
-        assertNotNull(actualBoards[0]);
-        assertNotNull(actualBoards[1]);
-        assertNotNull(actualBoards[2]);
-        assertNotNull(actualBoards[3]);
-        assertNotNull(actualBoards[4]);
-        assertNotNull(actualBoards[5]);
-        assertNotNull(actualBoards[6]);
-        assertNotNull(actualBoards[7]);
-        assertNotNull(actualBoards[8]);
         assertEquals(Symbol.CROSS, actualBoards[0].getMarkInterfaces()[0].getSymbol());
         assertEquals(Symbol.EMPTY, actualBoards[0].getMarkInterfaces()[1].getSymbol());
     }
